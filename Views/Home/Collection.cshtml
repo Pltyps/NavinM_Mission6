@@ -1,0 +1,83 @@
+﻿@*Movie Collection Form*@
+
+@model Record
+
+@{
+    ViewBag.Title = "Contribute to the Collection";
+	int currentYear = DateTime.Now.Year; // Get the current year
+}
+
+<!DOCTYPE html>
+    <html>
+    <head>
+        <title>@ViewBag.Title</title>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                let currentYear = new Date().getFullYear(); // Get Current Year in JS
+                document.getElementById("year").setAttribute("max", currentYear);
+            });
+        </script>
+    </head>
+    <body>
+        <h1>Contribute to the Collection</h1>
+        <form method="post">
+
+            @* Required *@
+            <label asp-for="Category">Category:</label>
+            <input asp-for="Category" type="text" id="category" name="Category" required />
+            <br /><br />
+
+            @* Required *@
+            <label asp-for="Title">Title:</label>
+            <input asp-for="Title" type="text" id="title" name="Title" required />
+            <br /><br />
+
+            @* Required *@
+            <label asp-for=Year>Year:</label>
+            <input asp-for="Year" type="number" id="year" name="Year" min="1888" max="@currentYear" required />
+            <br /><br />
+
+            @* Required *@
+            <label asp-for="Director">Director:</label>
+            <input asp-for="Director" type="text" id="director" name="Director" required />
+            <br /><br />
+
+            @* Required *@
+            @* DropDown Menu *@
+            <label asp-for="Rating">Rating:</label>
+            @* Options avaible are G, PG, PG-13, R, NC-17, NR/UR*@
+            <select asp-for="Rating" id="rating" name="Rating" required>
+                <option value="G">G (General Audiences)</option>
+                <option value="PG">PG (Parental Guidance Suggested)</option>
+                <option value="PG-13">PG-13 (Parents Strongly Cautioned)</option>
+                <option value="R">R (Restricted)</option>
+                <option value="NC-17">NC-17 (Adults Only)</option>
+                <option value="NR/UR">NR/UR (Not Rated/Unrated)</option>
+            </select>
+            <br /><br />
+
+
+
+            @* True/False Option *@
+            <label asp-for="Edited">Edited:</label>
+            <select asp-for="Edited" id="edited" name="Edited">
+                <option value="true">Yes</option>
+                <option value="false">No</option>
+            </select>
+            <br /><br />
+
+            <label asp-for="LentTo">Lent To:</label>
+            <input asp-for="LentTo" id="lentTo" name="LentTo" />
+            <br /><br />
+
+            @* 25 Char Max *@
+            <label asp-for="Notes">Notes:</label>
+            <input asp-for="Notes" id="notes" name="Notes" maxlength="25" placeholder="Max 25 characters" />
+            <br /><br />
+
+            <button type="submit">Submit</button>
+        </form>
+            
+
+    </body>
+    </html>

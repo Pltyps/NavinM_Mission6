@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35707.178 d17.12
+VisualStudioVersion = 17.12.35707.178
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NavinM_Mission6", "NavinM_Mission6.csproj", "{22E1268F-5AC9-472A-946F-02073268353F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mission06_Manirajan", "Mission06_Manirajan.csproj", "{22E1268F-5AC9-472A-946F-02073268353F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

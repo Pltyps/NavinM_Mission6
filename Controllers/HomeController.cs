@@ -1,16 +1,17 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using NavinM_Mission6.Models;
+using Mission06_Manirajan.Models;
 
-namespace NavinM_Mission6.Controllers
+namespace Mission06_Manirajan.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        private MovieCollectionContext _context; // Field
+
+        public HomeController(MovieCollectionContext temp) // Constructor
         {
-            _logger = logger;
+            _context = temp;
         }
 
         public IActionResult Index()
@@ -18,15 +19,25 @@ namespace NavinM_Mission6.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult Author()
         {
             return View();
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        [HttpGet]
+        public IActionResult Collection()
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            return View();
         }
+
+        [HttpPost]
+        public IActionResult Collection(Record response)
+        {
+            _context.Records.Add(response); //Add the record to the database
+            _context.SaveChanges(); //Save the changes
+
+            return View("Confirmation", response);
+        }
+
     }
 }

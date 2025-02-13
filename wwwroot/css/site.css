@@ -1,22 +1,235 @@
-html {
-  font-size: 14px;
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+
+/* Global Styles */
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #ffffff; /* Neutral background */
+    color: #333333; /* Dark text for high contrast */
 }
 
-@media (min-width: 768px) {
-  html {
+h1, h2, h3, h4, h5, h6 {
+    color: #222222;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+p {
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* Amber Color */
+:root {
+    --amber: #FFC107; /* Amber color */
+    --amber-dark: #FFA000; /* Darker amber for hover states */
+}
+
+/* Navbar */
+.navbar {
+    background-color: var(--amber);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    padding: 10px 20px;
+    z-index: 1000;
+}
+
+.navbar-brand {
+    color: #000000; /* Black text for contrast */
+    font-size: 24px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+    .navbar-brand:hover {
+        color: #333333; /* Slightly darker on hover */
+    }
+
+.navbar-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+    .navbar-nav .nav-item {
+        margin: 0 15px;
+    }
+
+    .navbar-nav .nav-link {
+        color: #000000; /* Black text */
+        font-size: 18px;
+        text-decoration: none;
+        transition: background-color 0.3s, color 0.3s;
+        padding: 8px 15px;
+        border-radius: 4px;
+    }
+
+        .navbar-nav .nav-link:hover {
+            background-color: var(--amber-dark); /* Darker amber */
+            color: #ffffff; /* White text on hover */
+        }
+
+/* Main Container */
+.container {
+    max-width: 1200px;
+    margin: 5px auto 40px auto; /* Adjusted for fixed navbar */
+    padding: 0 2px;
+}
+
+/* Forms */
+form {
+    background-color: #f9f9f9;
+    color: #333333;
+    padding: 30px;
+    border-radius: 5px;
+    border: 1px solid #cccccc;
+    max-width: 600px;
+    margin: 40px auto;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    font-weight: 600;
+    display: block;
+    margin-bottom: 5px;
+}
+
+input, textarea, select, button {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    border: 1px solid #cccccc;
     font-size: 16px;
-  }
 }
 
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+    input:focus, textarea:focus, select:focus {
+        border-color: var(--amber);
+        outline: none;
+    }
+
+button {
+    background-color: var(--amber);
+    border: none;
+    color: #000000; /* Black text */
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-html {
-  position: relative;
-  min-height: 100%;
+    button:hover {
+        background-color: var(--amber-dark);
+        color: #ffffff; /* White text on hover */
+    }
+
+/* Links */
+a {
+    color: var(--amber); /* Amber color for links */
+    text-decoration: none;
+    transition: color 0.3s;
 }
 
-body {
-  margin-bottom: 60px;
+    a:hover {
+        color: var(--amber-dark);
+        text-decoration: underline;
+    }
+
+/* Footer */
+footer {
+    background-color: var(--amber);
+    color: #000000; /* Black text */
+    text-align: center;
+    border-top: 1px solid var(--amber-dark);
+    width: 100%;
+    position: relative; /* Allow footer to flow naturally */
+    bottom: 0;
+}
+
+/* Images */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Specific Page Styles */
+/* Index Page */
+.index-page img {
+    width: 60%; /* Consistent size */
+    max-width: 500px;
+    margin: 20px auto;
+    display: block;
+    border-radius: 5px;
+}
+
+/* About Page */
+.about-page {
+    text-align: center;
+}
+
+    .about-page img {
+        width: 60%; /* Consistent size */
+        max-width: 500px;
+        margin: 20px auto;
+        display: block;
+        border-radius: 5px;
+    }
+
+/* Author Page */
+.author-page {
+    text-align: center;
+}
+
+    .author-page a {
+        display: inline-block;
+        margin: 20px 0;
+        font-weight: 600;
+        color: var(--amber);
+        transition: color 0.3s;
+    }
+
+        .author-page a:hover {
+            color: var(--amber-dark);
+        }
+
+    .author-page img {
+        width: 60%; /* Consistent size */
+        max-width: 500px;
+        margin: 20px auto;
+        display: block;
+        border-radius: 5px;
+    }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar-nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+        .navbar-nav .nav-item {
+            margin: 10px 0;
+        }
+
+    .container {
+        margin-top: 5px;
+        padding: 0 5px;
+    }
+
+    form {
+        padding: 20px;
+        margin: 20px 15px;
+    }
+
+    .index-page img,
+    .about-page img,
+    .author-page img {
+        width: 80%;
+        max-width: none;
+    }
 }
