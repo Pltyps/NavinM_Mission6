@@ -1,15 +1,19 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Mission06_Manirajan.Models
 {
     public class Record
     {
         [Key]
-        [Required]
-        public int RecordId { get; set; }
+        public int MovieId { get; set; }
 
-        [Required]
-        public string Category { get; set; }
+
+        // Syntax that sets up the foreign key relationship to the other table.
+        [ForeignKey("CategoryId")]
+        public int CategoryId { get; set; }
+        public Category Category { get; set; }
+
 
         [Required]
         public string Title { get; set; }
@@ -17,15 +21,17 @@ namespace Mission06_Manirajan.Models
         [Required]
         public int Year { get; set; }
 
-        [Required]
         public string Director { get; set; }
 
-        [Required]
         public string Rating { get; set; }
 
+        [Required]
         public bool Edited { get; set; }
 
         public string? LentTo { get; set; }
+
+        [Required]
+        public string CopiedToPlex { get; set; }
 
         public string? Notes { get; set; }
 
