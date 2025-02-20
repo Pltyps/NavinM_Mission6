@@ -35,8 +35,8 @@
                 <td>@x.CopiedToPlex</td>
                 <td>@(x.Notes ?? "NA")</td>
 
-                <td><a class="btn btn-light">Edit</a></td>
-				<td><a class="btn btn-danger">Delete</a></td>
+                <td><a class="btn btn-light" asp-controller="Home" asp-action="Edit" asp-route-id="@x.MovieId">Edit</a></td>
+				<td><a class="btn btn-danger" asp-controller="Home" asp-action="Delete" asp-route-id="@x.MovieId">Delete</a></td>
             </tr>
         </tbody>
     }

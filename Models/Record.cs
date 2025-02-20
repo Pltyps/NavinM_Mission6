@@ -8,8 +8,8 @@ public class Record
     public int MovieId { get; set; }
 
     [ForeignKey("CategoryId")]
-    public int CategoryId { get; set; }
-    public Category Category { get; set; }
+    public int? CategoryId { get; set; }
+    public Category? Category { get; set; }
 
     [Required]
     public string Title { get; set; } = string.Empty;  // Ensures Title is always non-null
@@ -22,12 +22,12 @@ public class Record
     public string? Rating { get; set; }  // Nullable
 
     [Required]
-    public bool Edited { get; set; }
+    public int Edited { get; set; } = 0;  // Default value
 
     public string? LentTo { get; set; }
 
     [Required]
-    public string CopiedToPlex { get; set; } = "No";  // Default value
+    public int CopiedToPlex { get; set; } = 0;  // Default value
 
     public string? Notes { get; set; }
 }

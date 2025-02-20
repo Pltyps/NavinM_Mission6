@@ -21,6 +21,9 @@
     <body>
         <h1>Add a New Movie</h1>
         <form method="post">
+
+		    <input type="hidden" asp-for="MovieId" />
+
             <label asp-for="CategoryId">Category:</label>
             <select asp-for="CategoryId">
 			    <option value="">Select a Category</option>
@@ -74,7 +77,7 @@
             @* Required *@
             @* True/False Option *@
             <label asp-for="CopiedToPlex">Copied to Plex:</label>
-        <select asp-for="CopiedToPlex" id="copiedToPlex" name="CopiedToPlex" required>
+            <select asp-for="CopiedToPlex" id="copiedToPlex" name="CopiedToPlex" required>
                 <option value="1">Yes</option>
                 <option value="0">No</option>
             </select>
@@ -86,6 +89,8 @@
             <br /><br />
 
             <button type="submit">Submit</button>
+
+		    <div asp-validation-summary="All"></div>
         </form>
             
 
