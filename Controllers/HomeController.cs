@@ -46,7 +46,8 @@ namespace Mission06_Manirajan.Controllers
         public IActionResult MovieLibrary()
         {
             //Linq
-            var movies = _context.Movies.ToList();  // Fetch records as-is
+            var movies = _context.Movies
+                .OrderBy(x => x.Title).ToList();  // Fetch records as-is
 
             return View(movies);
         }
